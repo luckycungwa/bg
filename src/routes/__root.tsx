@@ -77,19 +77,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Benington Gears — Custom Gear Manufacturing in Johannesburg" },
+      {
+        name: "description",
+        content:
+          "Precision-engineered custom gears manufactured in Johannesburg. 35+ years of gear cutting, express turnaround, sizes from 3mm to 1000mm.",
+      },
+      { name: "author", content: "Benington Gears" },
+      { property: "og:title", content: "Benington Gears — Custom Gear Manufacturing" },
+      {
+        property: "og:description",
+        content:
+          "South Africa's trusted custom gear manufacturer. Spur, helical, bevel, worm, planetary and more — built to spec.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://api.fontshare.com" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://api.fontshare.com/v2/css?f[]=excon@400,500,700&f[]=expose@300,400,500,600,700&display=swap",
       },
     ],
   }),
@@ -118,7 +127,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
