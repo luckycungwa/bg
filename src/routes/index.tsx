@@ -28,16 +28,18 @@ import {
 } from "lucide-react";
 
 import heroGear from "@/assets/hero-gear.jpg";
-import workshop from "@/assets/workshop.jpg";
+import workshop from "@/assets/aboutBG.jpg";
 import inspection from "@/assets/inspection.jpg";
 import cnc from "@/assets/cnc.jpg";
 import gSpur from "@/assets/gear-spur.jpg";
-import gHelical from "@/assets/gear-helical.jpg";
-import gBevel from "@/assets/gear-bevel.jpg";
-import gWorm from "@/assets/gear-worm.jpg";
-import gPlanetary from "@/assets/gear-planetary.jpg";
-import gRing from "@/assets/gear-ring.jpg";
-import gRack from "@/assets/gear-rack.jpg";
+import gHelical from "@/assets/gear-spur.jpg";
+import gBevel from "@/assets/gear-spur.jpg";
+import gWorm from "@/assets/gear-spur.jpg";
+import gPlanetary from "@/assets/gear-spur.jpg";
+import gRing from "@/assets/gear-spur.jpg";
+import gRack from "@/assets/gear-spur.jpg";
+import logo from "@/assets/logo.png";
+// Gear types
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -84,11 +86,11 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Gear Types", href: "#gears" },
   { label: "Materials", href: "#materials" },
   { label: "Process", href: "#process" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -112,7 +114,7 @@ function HomePage() {
         <Contact />
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      {/* <FloatingWhatsApp /> */}
     </div>
   );
 }
@@ -132,23 +134,19 @@ function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy-deep/85 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
+        scrolled ? "bg-navy-deep/85 backdrop-blur-md border-b border-white/10" : "bg-transparent"
       }`}
     >
       <div className="container-x flex h-16 md:h-20 items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-2.5 shrink-0">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-orange text-navy-deep">
-            <Cog className="h-5 w-5" strokeWidth={2.5} />
+          <span className="grid h-12 w-12 place-items-center isRoundedmd bg-default text-navy-deep">
+            <img src={logo} alt="Benington Gears" className="h-12 w-12" />
           </span>
           <div className="leading-tight">
-            <div className="font-display font-bold tracking-tight text-white text-base md:text-lg">
+            <div className="font-display font-bold tracking-tight text-white/90 text-base md:text-lg">
               BENINGTON
             </div>
-            <div className="text-[10px] uppercase tracking-[0.22em] text-orange -mt-0.5">
-              Gears
-            </div>
+            <div className="text-[12px] uppercase tracking-[0.22em] text-orange -mt-0.5">GEARS</div>
           </div>
         </a>
 
@@ -165,16 +163,16 @@ function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <a
+          {/* <a
             href="tel:+27726106810"
             className="text-sm text-white/80 hover:text-white flex items-center gap-2"
           >
             <Phone className="h-4 w-4" />
             072 610 6810
-          </a>
+          </a> */}
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 rounded-md bg-orange px-4 py-2.5 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-colors"
+            className="inline-flex items-center gap-2 isRoundedmd bg-orange px-4 py-2.5 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-colors"
           >
             Request Quote <ArrowRight className="h-4 w-4" />
           </a>
@@ -205,7 +203,7 @@ function Header() {
             <a
               href="#quote"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-orange px-4 py-3 text-sm font-semibold text-navy-deep"
+              className="mt-2 inline-flex items-center justify-center isRoundedmd bg-orange px-4 py-3 text-sm font-semibold text-navy-deep"
             >
               Request Quote
             </a>
@@ -232,14 +230,14 @@ function Hero() {
 
       <div className="relative container-x w-full pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-3xl">
-          <div className="eyebrow mb-6">Established 1989 · Johannesburg</div>
-          <h1 className="text-white text-[2.5rem] sm:text-6xl lg:text-7xl leading-[1.02] font-display font-bold">
-            Custom Gear Manufacturing
-            <span className="block text-orange">Specialists Since 1989.</span>
+          <div className="eyebrow mb-6">Established 1989</div>
+          <h1 className="text-white text-[2.5rem] sm:text-6xl lg:text-7xl leading-[1.02] uppercase font-display font-bold">
+            We specialise in custom gears.
+            <span className="block text-orange">Since 1989.</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed">
-            Precision-engineered gears manufactured to specification with express
-            turnaround times across South Africa.
+            Precision-engineered gears manufactured to specification with express turnaround times
+            across South Africa.
           </p>
 
           <ul className="mt-8 grid sm:grid-cols-2 gap-3 max-w-xl">
@@ -259,13 +257,13 @@ function Hero() {
           <div className="mt-10 flex flex-wrap gap-3">
             <a
               href="#quote"
-              className="inline-flex items-center gap-2 rounded-md bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-all shadow-lg shadow-orange/20"
+              className="inline-flex items-center gap-2 isRoundedmd bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-all shadow-lg shadow-orange/20"
             >
               Request a Quote <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#gears"
-              className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 backdrop-blur px-6 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+              className="inline-flex items-center gap-2 isRoundedmd border border-white/25 bg-white/5 backdrop-blur px-6 py-4 text-sm font-semibold text-white hover:bg-white/10 transition-all"
             >
               View Gear Types
             </a>
@@ -273,9 +271,9 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hidden md:flex absolute bottom-8 right-8 items-center gap-3 text-white/60 text-xs uppercase tracking-[0.2em]">
+      {/* <div className="hidden md:flex absolute bottom-8 right-8 items-center gap-3 text-white/60 text-xs uppercase tracking-[0.2em]">
         <span className="h-px w-10 bg-white/30" /> Scroll
-      </div>
+      </div> */}
     </section>
   );
 }
@@ -312,7 +310,7 @@ function About() {
     <section id="about" className="section-pad bg-background">
       <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="relative">
-          <div className="aspect-[4/5] overflow-hidden rounded-2xl">
+          <div className="aspect-[4/5] overflow-hidden isRounded2xl">
             <img
               src={workshop}
               alt="Benington Gears workshop with CNC machines and finished gears"
@@ -322,7 +320,7 @@ function About() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -right-4 md:-right-6 bg-orange text-navy-deep rounded-xl p-5 md:p-6 shadow-2xl shadow-orange/30 max-w-[14rem]">
+          <div className="absolute -bottom-6 -right-4 md:-right-6 bg-orange text-navy-deep isRoundedxl p-5 md:p-6 shadow-2xl shadow-orange/30 max-w-[14rem]">
             <div className="text-4xl md:text-5xl font-display font-bold leading-none">
               35<span className="text-2xl">+</span>
             </div>
@@ -339,18 +337,18 @@ function About() {
           </h2>
           <div className="mt-7 space-y-5 text-white/70 text-base md:text-lg leading-relaxed">
             <p>
-              Benington Gears has supplied custom gears and gear-cutting solutions
-              for over three decades — from small machinery and electric motors to
-              specialised industrial applications across South Africa.
+              Benington Gears has supplied custom gears and gear-cutting solutions for over three
+              decades — from small machinery and electric motors to specialised industrial
+              applications across South Africa.
             </p>
             <p>
-              Every gear is produced to specification using quality materials and
-              proven manufacturing processes, backed by experienced engineers who
-              treat precision as non-negotiable.
+              Every gear is produced to specification using quality materials and proven
+              manufacturing processes, backed by experienced engineers who treat precision as
+              non-negotiable.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+          <div className="mt-10 grid grid-cols-2 gap-px bg-white/10 isRoundedxl overflow-hidden border border-white/10">
             {[
               { v: "35+", l: "Years Experience" },
               { v: "1000mm", l: "Max Gear Diameter" },
@@ -358,9 +356,7 @@ function About() {
               { v: "Express", l: "Manufacturing Service" },
             ].map((s) => (
               <div key={s.l} className="bg-navy p-5 md:p-6">
-                <div className="text-2xl md:text-3xl font-display font-bold text-orange">
-                  {s.v}
-                </div>
+                <div className="text-2xl md:text-3xl font-display font-bold text-orange">{s.v}</div>
                 <div className="mt-1 text-xs md:text-sm text-white/65">{s.l}</div>
               </div>
             ))}
@@ -416,21 +412,19 @@ function Services() {
           </h2>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 isRounded2xl overflow-hidden">
           {services.map(({ icon: Icon, title, text }) => (
             <article
               key={title}
               className="group relative bg-navy p-7 md:p-9 hover:bg-navy-deep transition-colors"
             >
               <div className="flex items-start justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-lg bg-orange/15 text-orange ring-1 ring-orange/30">
+                <span className="grid h-12 w-12 place-items-center isRoundedlg bg-orange/15 text-orange ring-1 ring-orange/30">
                   <Icon className="h-6 w-6" />
                 </span>
                 <ArrowUpRight className="h-5 w-5 text-white/30 group-hover:text-orange group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </div>
-              <h3 className="mt-7 text-xl font-display font-bold text-white">
-                {title}
-              </h3>
+              <h3 className="mt-7 text-xl font-display font-bold text-white">{title}</h3>
               <p className="mt-3 text-sm text-white/65 leading-relaxed">{text}</p>
             </article>
           ))}
@@ -443,16 +437,36 @@ function Services() {
 /* ----------------------------- Gear Types ----------------------------- */
 function GearTypes() {
   const gears = [
-    { name: "Spur Gears", img: gSpur, desc: "Parallel-axis transmission for general-purpose drives." },
+    {
+      name: "Spur Gears",
+      img: gSpur,
+      desc: "Parallel-axis transmission for general-purpose drives.",
+    },
     { name: "Helical Gears", img: gHelical, desc: "Smooth, high-load running with angled teeth." },
-    { name: "Double Helical", img: gHelical, desc: "Herringbone profile for heavy bidirectional loads." },
+    {
+      name: "Double Helical",
+      img: gHelical,
+      desc: "Herringbone profile for heavy bidirectional loads.",
+    },
     { name: "Bevel Gears", img: gBevel, desc: "Right-angle drives for shaft direction changes." },
-    { name: "Spiral Bevel", img: gBevel, desc: "Curved-tooth bevels for quieter high-speed operation." },
+    {
+      name: "Spiral Bevel",
+      img: gBevel,
+      desc: "Curved-tooth bevels for quieter high-speed operation.",
+    },
     { name: "Worm Gears", img: gWorm, desc: "High reduction ratios in a compact footprint." },
-    { name: "Planetary Gears", img: gPlanetary, desc: "Concentric epicyclic systems for torque density." },
+    {
+      name: "Planetary Gears",
+      img: gPlanetary,
+      desc: "Concentric epicyclic systems for torque density.",
+    },
     { name: "Ring Gears", img: gRing, desc: "Internal gear rings for planetary and large drives." },
     { name: "Pinion Gears", img: gSpur, desc: "Mating pinions cut to your module and pitch." },
-    { name: "Rack & Pinion", img: gRack, desc: "Linear motion conversion for travel applications." },
+    {
+      name: "Rack & Pinion",
+      img: gRack,
+      desc: "Linear motion conversion for travel applications.",
+    },
     { name: "Reduction Gears", img: gPlanetary, desc: "Custom ratio sets for speed reduction." },
     { name: "Miter Gears", img: gBevel, desc: "1:1 bevel pairs for direction-only changes." },
   ];
@@ -468,9 +482,8 @@ function GearTypes() {
             </h2>
           </div>
           <p className="text-white/65 max-w-md text-base md:text-lg">
-            From single replacement components to full production runs — across
-            every common gear geometry in steel, brass, bronze and engineering
-            plastics.
+            From single replacement components to full production runs — across every common gear
+            geometry in steel, brass, bronze and engineering plastics.
           </p>
         </div>
 
@@ -478,7 +491,7 @@ function GearTypes() {
           {gears.map((g, i) => (
             <article
               key={g.name + i}
-              className="group relative overflow-hidden rounded-xl bg-navy border border-white/10 hover:border-orange/40 transition-all"
+              className="group relative overflow-hidden isRoundedxl bg-navy border border-white/10 hover:border-orange/40 transition-all"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -493,14 +506,10 @@ function GearTypes() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg md:text-xl font-display font-bold text-white">
-                    {g.name}
-                  </h3>
+                  <h3 className="text-lg md:text-xl font-display font-bold text-white">{g.name}</h3>
                   <ArrowUpRight className="h-5 w-5 text-orange opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <p className="mt-1.5 text-xs md:text-sm text-white/65 leading-snug">
-                  {g.desc}
-                </p>
+                <p className="mt-1.5 text-xs md:text-sm text-white/65 leading-snug">{g.desc}</p>
               </div>
             </article>
           ))}
@@ -509,7 +518,7 @@ function GearTypes() {
         <div className="mt-12 text-center">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 rounded-md bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright"
+            className="inline-flex items-center gap-2 isRoundedmd bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright"
           >
             Discuss your gear requirement <ArrowRight className="h-4 w-4" />
           </a>
@@ -545,12 +554,10 @@ function Materials() {
           {mats.map((m) => (
             <div
               key={m.n}
-              className="group rounded-xl border border-white/10 bg-navy p-6 hover:border-orange/40 hover:bg-navy/70 transition-all"
+              className="group isRoundedxl border border-white/10 bg-navy p-6 hover:border-orange/40 hover:bg-navy/70 transition-all"
             >
               <Layers className="h-7 w-7 text-orange" />
-              <div className="mt-5 text-lg font-display font-bold text-white">
-                {m.n}
-              </div>
+              <div className="mt-5 text-lg font-display font-bold text-white">{m.n}</div>
               <div className="mt-1.5 text-sm text-white/60 leading-snug">{m.d}</div>
             </div>
           ))}
@@ -564,7 +571,11 @@ function Materials() {
 function WhyUs() {
   const items = [
     { icon: Award, t: "35+ Years Experience", d: "Decades of gear manufacturing expertise." },
-    { icon: Gauge, t: "Precision Manufacturing", d: "Produced to exact specifications, every time." },
+    {
+      icon: Gauge,
+      t: "Precision Manufacturing",
+      d: "Produced to exact specifications, every time.",
+    },
     { icon: Clock, t: "Express Turnaround", d: "Fast production when downtime costs money." },
     { icon: Settings2, t: "Custom Solutions", d: "Designed and cut around your requirements." },
     { icon: MapPin, t: "Local Manufacturing", d: "Johannesburg-based production facility." },
@@ -595,12 +606,10 @@ function WhyUs() {
           {items.map(({ icon: Icon, t, d }) => (
             <div
               key={t}
-              className="rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur p-7 hover:border-orange/40 hover:bg-white/[0.06] transition-all"
+              className="isRoundedxl border border-white/10 bg-white/[0.03] backdrop-blur p-7 hover:border-orange/40 hover:bg-white/[0.06] transition-all"
             >
               <Icon className="h-8 w-8 text-orange" />
-              <h3 className="mt-6 text-lg font-display font-bold text-white">
-                {t}
-              </h3>
+              <h3 className="mt-6 text-lg font-display font-bold text-white">{t}</h3>
               <p className="mt-2 text-sm text-white/65 leading-relaxed">{d}</p>
             </div>
           ))}
@@ -627,16 +636,13 @@ function Industries() {
       <div className="container-x">
         <div className="max-w-2xl">
           <div className="eyebrow mb-5">Industries</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">
-            Industries we serve.
-          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">Industries we serve.</h2>
           <p className="mt-5 text-white/65 text-base md:text-lg">
-            Trusted by engineers and operations teams across South Africa's most
-            demanding sectors.
+            Trusted by engineers and operations teams across South Africa's most demanding sectors.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 isRounded2xl overflow-hidden">
           {list.map((n, i) => (
             <div
               key={n}
@@ -683,14 +689,12 @@ function Process() {
           {steps.map((s, i) => (
             <div
               key={s.t}
-              className="relative rounded-xl border border-white/10 bg-navy-deep p-7 overflow-hidden"
+              className="relative isRoundedxl border border-white/10 bg-navy-deep p-7 overflow-hidden"
             >
               <div className="text-6xl font-display font-bold text-orange/20 leading-none">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-4 text-lg font-display font-bold text-white">
-                {s.t}
-              </h3>
+              <h3 className="mt-4 text-lg font-display font-bold text-white">{s.t}</h3>
               <p className="mt-2 text-sm text-white/65 leading-relaxed">{s.d}</p>
             </div>
           ))}
@@ -731,7 +735,7 @@ function Showcase() {
           {imgs.map((im, i) => (
             <div
               key={i}
-              className={`relative overflow-hidden rounded-xl border border-white/10 group ${im.span ?? ""}`}
+              className={`relative overflow-hidden isRoundedxl border border-white/10 group ${im.span ?? ""}`}
             >
               <img
                 src={im.src}
@@ -784,7 +788,7 @@ function Testimonials() {
           {ts.map((t, i) => (
             <figure
               key={i}
-              className="rounded-2xl border border-white/10 bg-navy-deep p-8 flex flex-col"
+              className="isRounded2xl border border-white/10 bg-navy-deep p-8 flex flex-col"
             >
               <Quote className="h-8 w-8 text-orange" />
               <blockquote className="mt-5 text-white/85 text-base md:text-lg leading-relaxed flex-1">
@@ -807,17 +811,15 @@ function QuoteCta() {
   return (
     <section id="quote" className="section-pad bg-background">
       <div className="container-x">
-        <div className="rounded-3xl overflow-hidden border border-white/10 bg-navy grid lg:grid-cols-5">
+        <div className="isRounded3xl overflow-hidden border border-white/10 bg-navy grid lg:grid-cols-5">
           <div className="lg:col-span-2 relative p-8 md:p-12 bg-navy-deep overflow-hidden">
-            <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-orange/20 blur-3xl" />
+            <div className="absolute -top-20 -right-20 h-64 w-64 isRoundedfull bg-orange/20 blur-3xl" />
             <div className="relative">
               <div className="eyebrow mb-5">Request Quote</div>
-              <h2 className="text-3xl md:text-5xl text-white">
-                Need a custom gear manufactured?
-              </h2>
+              <h2 className="text-3xl md:text-5xl text-white">Need a custom gear manufactured?</h2>
               <p className="mt-5 text-white/65 leading-relaxed">
-                Send us your drawing, specification or sample and receive a fast
-                quotation from our engineering team.
+                Send us your drawing, specification or sample and receive a fast quotation from our
+                engineering team.
               </p>
 
               <div className="mt-10 space-y-4">
@@ -825,7 +827,7 @@ function QuoteCta() {
                   href="tel:+27726106810"
                   className="flex items-center gap-4 text-white hover:text-orange"
                 >
-                  <span className="grid h-10 w-10 place-items-center rounded-md bg-white/10">
+                  <span className="grid h-10 w-10 place-items-center isRoundedmd bg-white/10">
                     <Phone className="h-4 w-4" />
                   </span>
                   <span>
@@ -837,7 +839,7 @@ function QuoteCta() {
                   href="mailto:c.gear@hotmail.com"
                   className="flex items-center gap-4 text-white hover:text-orange"
                 >
-                  <span className="grid h-10 w-10 place-items-center rounded-md bg-white/10">
+                  <span className="grid h-10 w-10 place-items-center isRoundedmd bg-white/10">
                     <Mail className="h-4 w-4" />
                   </span>
                   <span>
@@ -876,7 +878,7 @@ function QuoteCta() {
               </label>
               <select
                 name="gearType"
-                className="w-full bg-navy-deep border border-white/15 rounded-md px-4 py-3 text-white focus:border-orange focus:outline-none"
+                className="w-full bg-navy-deep border border-white/15 isRoundedmd px-4 py-3 text-white focus:border-orange focus:outline-none"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -901,7 +903,7 @@ function QuoteCta() {
               <label className="block text-xs uppercase tracking-wider text-white/60 mb-2">
                 Upload Drawing
               </label>
-              <label className="flex items-center justify-between gap-3 rounded-md border border-dashed border-white/20 bg-navy-deep px-4 py-4 cursor-pointer hover:border-orange/60">
+              <label className="flex items-center justify-between gap-3 isRoundedmd border border-dashed border-white/20 bg-navy-deep px-4 py-4 cursor-pointer hover:border-orange/60">
                 <span className="text-sm text-white/60 flex items-center gap-3">
                   <Upload className="h-4 w-4" />
                   Attach DWG, PDF or image (max 10MB)
@@ -919,19 +921,17 @@ function QuoteCta() {
                 name="message"
                 rows={4}
                 placeholder="Quantity, dimensions, material, deadline…"
-                className="w-full bg-navy-deep border border-white/15 rounded-md px-4 py-3 text-white placeholder:text-white/30 focus:border-orange focus:outline-none resize-none"
+                className="w-full bg-navy-deep border border-white/15 isRoundedmd px-4 py-3 text-white placeholder:text-white/30 focus:border-orange focus:outline-none resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-colors"
+              className="inline-flex items-center justify-center gap-2 isRoundedmd bg-orange px-6 py-4 text-sm font-semibold text-navy-deep hover:bg-orange-bright transition-colors"
             >
               Request Quote <ArrowRight className="h-4 w-4" />
             </button>
-            <p className="text-xs text-white/45">
-              We typically reply within one business day.
-            </p>
+            <p className="text-xs text-white/45">We typically reply within one business day.</p>
           </form>
         </div>
       </div>
@@ -959,7 +959,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full bg-navy-deep border border-white/15 rounded-md px-4 py-3 text-white focus:border-orange focus:outline-none"
+        className="w-full bg-navy-deep border border-white/15 isRoundedmd px-4 py-3 text-white focus:border-orange focus:outline-none"
       />
     </div>
   );
@@ -976,8 +976,7 @@ function Contact() {
             Visit the workshop. Call the team.
           </h2>
           <p className="mt-5 text-white/65 text-base md:text-lg">
-            Based in Linbro Park, Sandton — manufacturing for clients across South
-            Africa.
+            Based in Linbro Park, Sandton — manufacturing for clients across South Africa.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 gap-4">
@@ -999,14 +998,10 @@ function Contact() {
               value="c.gear@hotmail.com"
               href="mailto:c.gear@hotmail.com"
             />
-            <ContactCard
-              icon={Clock}
-              label="Hours"
-              value="Mon – Fri · 07:30 – 16:30"
-            />
+            <ContactCard icon={Clock} label="Hours" value="Mon – Fri · 07:30 – 16:30" />
           </div>
 
-          <div className="mt-6 rounded-xl border border-white/10 bg-navy p-6 flex items-start gap-4">
+          <div className="mt-6 isRoundedxl border border-white/10 bg-navy p-6 flex items-start gap-4">
             <MapPin className="h-5 w-5 text-orange shrink-0 mt-0.5" />
             <div>
               <div className="text-xs uppercase tracking-wider text-white/55">Address</div>
@@ -1019,7 +1014,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-white/10 aspect-square lg:aspect-auto lg:h-full min-h-[420px]">
+        <div className="isRounded2xl overflow-hidden border border-white/10 aspect-square lg:aspect-auto lg:h-full min-h-[420px]">
           <iframe
             title="Benington Gears location"
             src="https://www.google.com/maps?q=100+Clulee+Road,+Linbro+Park,+Sandton,+Johannesburg&output=embed"
@@ -1048,9 +1043,9 @@ function ContactCard({
   return (
     <Wrap
       href={href}
-      className="rounded-xl border border-white/10 bg-navy p-5 flex items-start gap-4 hover:border-orange/40 transition-colors"
+      className="isRoundedxl border border-white/10 bg-navy p-5 flex items-start gap-4 hover:border-orange/40 transition-colors"
     >
-      <span className="grid h-10 w-10 place-items-center rounded-md bg-orange/15 text-orange shrink-0">
+      <span className="grid h-10 w-10 place-items-center isRoundedmd bg-orange/15 text-orange shrink-0">
         <Icon className="h-4 w-4" />
       </span>
       <div className="min-w-0">
@@ -1095,7 +1090,7 @@ function Footer() {
       <div className="container-x py-16 grid lg:grid-cols-5 gap-10">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-orange text-navy-deep">
+            <span className="grid h-10 w-10 place-items-center isRoundedmd bg-orange text-navy-deep">
               <Cog className="h-5 w-5" strokeWidth={2.5} />
             </span>
             <div>
@@ -1135,10 +1130,7 @@ function Footer() {
             <ul className="mt-5 space-y-3">
               {c.items.map((i) => (
                 <li key={i.l}>
-                  <a
-                    href={i.href}
-                    className="text-sm text-white/70 hover:text-white"
-                  >
+                  <a href={i.href} className="text-sm text-white/70 hover:text-white">
                     {i.l}
                   </a>
                 </li>
@@ -1166,17 +1158,17 @@ function Footer() {
 }
 
 /* ----------------------------- WhatsApp ----------------------------- */
-function FloatingWhatsApp() {
-  return (
-    <a
-      href="https://wa.me/27726106810?text=Hi%20Benington%20Gears%2C%20I%27d%20like%20a%20quote%20on%20a%20custom%20gear."
-      target="_blank"
-      rel="noreferrer"
-      className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-2xl shadow-black/40 hover:scale-105 transition-transform"
-      aria-label="Chat on WhatsApp"
-    >
-      <MessageCircle className="h-5 w-5" />
-      <span className="text-sm font-semibold hidden sm:inline">WhatsApp Us</span>
-    </a>
-  );
-}
+// function FloatingWhatsApp() {
+//   return (
+//     <a
+//       href="https://wa.me/27726106810?text=Hi%20Benington%20Gears%2C%20I%27d%20like%20a%20quote%20on%20a%20custom%20gear."
+//       target="_blank"
+//       rel="noreferrer"
+//       className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 isRoundedfull bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-2xl shadow-black/40 hover:scale-105 transition-transform"
+//       aria-label="Chat on WhatsApp"
+//     >
+//       <MessageCircle className="h-5 w-5" />
+//       <span className="text-sm font-semibold hidden sm:inline">WhatsApp Us</span>
+//     </a>
+//   );
+// }
