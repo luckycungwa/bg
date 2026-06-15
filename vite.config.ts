@@ -12,4 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+ vite: {
+    // Override Lovable's default Cloudflare nitro target for Vercel deployment
+    ...(process.env.VERCEL && {
+      // @ts-expect-error - nitro config passthrough
+      nitro: {
+        preset: "vercel",
+      },
+    }),
+  },
 });
